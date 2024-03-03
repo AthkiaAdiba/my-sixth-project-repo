@@ -1,7 +1,7 @@
 
 let isActive = false;
 
-const fetchAllPosts = async () => {
+const fetchAllPosts = async (searchText) => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     const data = await res.json()
     const allPosts = data.posts;
@@ -64,21 +64,104 @@ const fetchAllPosts = async () => {
 }
 
 
+
+const categoryAllPosts = async (searchText) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`)
+    const data = await res.json()
+    const allPosts = data.posts;
+    // console.log(allPosts);
+
+    const postsContainer = document.getElementById('card-container');
+
+    postsContainer.innerHTML = ''
+    allPosts.forEach(post => {
+        // console.log(post);
+        const postDiv = document.createElement('div');
+        postDiv.innerHTML = `
+        <div class="flex gap-2 bg-[#797dfc1a] p-10 rounded-3xl">
+                        <!-- Avter div -->
+                        <div>
+                        <div class="relative mt-5">
+                        <img class="w-[100px] h-[100px] rounded-full" src="${post.image}" />
+                        <div class="absolute top-2 left-[78px] h-[15px] w-[15px] rounded-full ${post.isActive ? "bg-green-700" : "bg-red-700"}"></div>
+                    </div>
+                        </div>
+                        <!-- Text div -->
+                        <div class="font-inter space-y-6">
+                            <div class="flex items-center gap-5 font-medium text-[#12132dcc]">
+                                <p># <span>${post.category}</span></p>
+                                <p>Author : <span>${post.author.name}</span></p>
+                            </div>
+                            <h3 class="font-mulish text-[#12132D] font-bold text-xl">${post.title}</h3>
+                            <p class="text-base text-[#12132D]">${post.description}</p>
+                            <img class="w-full" src="images/Line 1 (3).png" alt="">
+                            <!-- icon div -->
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-8">
+                                    <div class="flex items-center gap-3 text-base text-[#12132D]">
+                                        <img src="images/comment.png" alt="">
+                                        <p>${post.comment_count}</p>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-base text-[#12132D]">
+                                        <img src="images/eye.png" alt="">
+                                        <p>${post.view_count}</p>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-base text-[#12132D]">
+                                        <img src="images/time.png" alt="">
+                                        <p><span>${post.posted_time}</span>min</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button onclick="tittleAddingBtn('${escape(post.title)}',${post.view_count})"><img src="images/inbox.png" alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        `;
+        postsContainer.appendChild(postDiv);
+
+
+    });
+
+    // hide Loading Spinner
+
+    loadingSpinner(false)
+
+
+}
+
+
 fetchAllPosts();
 
 
 // handle Search 
 
-const handleSearch = async() => {
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
-    const data = await res.json()
-    const allPosts = data.posts;
-    console.log(allPosts)
-    const searchBoxValue = document.getElementById('search-box').value;
-    fetchAllPosts(searchBoxValue)
-    // console.log(searchBoxValue)
+const handleSearch = async () => {
 
+    loadingSpinner(true)
+    const searchBoxValue = document.getElementById('search-box').value;
+    // console.log(searchBoxValue)
+    categoryAllPosts(searchBoxValue)
 }
+
+
+// Loading Spinner
+
+
+
+const loadingSpinner = (isLoading) => {
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if (isLoading) {
+        loadingSpinner.classList.remove('hidden');
+        // setTimeout(() => {
+        //     loadingSpinner();
+        // }, 10000)
+    }
+    else {
+        loadingSpinner.classList.add('hidden');
+    }
+}
+
 
 // Button Function
 
@@ -125,7 +208,7 @@ const fetchLatestPosts = async () => {
                     <div class="space-y-3 card-body">
                         <div class="flex items-center gap-2">
                             <img src="images/date.png" alt="">
-                            <p class="font-mulish text-[#12132d99]">${card.author?.posted_date}</p>
+                            <p class="font-mulish text-[#12132d99]">${card.author?.posted_date || 'No Publish Date'}</p>
                         </div>
                         <h4 class="font-mulish font-extrabold text-lg text-[#12132D]">${card.title}</h4>
                         <p class="font-mulish text-[#12132d99]">${card.description}</p>
@@ -137,7 +220,7 @@ const fetchLatestPosts = async () => {
                             </div>
                             <div class="font-mulish">
                                 <h5 class="text-base font-bold text-[#12132D]">${card.author.name}</h5>
-                                <p>${card.author?.designation}</p>
+                                <p>${card.author?.designation || 'Unknown'}</p>
                             </div>
                         </div>
                     </div>
