@@ -1,25 +1,28 @@
 
+let isActive = false;
 
 const fetchAllPosts = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     const data = await res.json()
     const allPosts = data.posts;
+
+
     // console.log(allPosts);
 
     const postsContainer = document.getElementById('card-container');
 
+    postsContainer.innerHTML = ''
     allPosts.forEach(post => {
-        console.log(post);
+        // console.log(post);
         const postDiv = document.createElement('div');
         postDiv.innerHTML = `
         <div class="flex gap-2 bg-[#797dfc1a] p-10 rounded-3xl">
                         <!-- Avter div -->
                         <div>
-                            <div class="avatar online">
-                                <div class="w-24 rounded-full">
-                                    <img src="${post.image}" />
-                                </div>
-                            </div>
+                        <div class="relative mt-5">
+                        <img class="w-[100px] h-[100px] rounded-full" src="${post.image}" />
+                        <div class="absolute top-2 left-[78px] h-[15px] w-[15px] rounded-full ${post.isActive ? "bg-green-700" : "bg-red-700"}"></div>
+                    </div>
                         </div>
                         <!-- Text div -->
                         <div class="font-inter space-y-6">
@@ -28,8 +31,7 @@ const fetchAllPosts = async () => {
                                 <p>Author : <span>${post.author.name}</span></p>
                             </div>
                             <h3 class="font-mulish text-[#12132D] font-bold text-xl">${post.title}</h3>
-                            <p class="text-base text-[#12132D]">${post.description
-                            }</p>
+                            <p class="text-base text-[#12132D]">${post.description}</p>
                             <img class="w-full" src="images/Line 1 (3).png" alt="">
                             <!-- icon div -->
                             <div class="flex justify-between items-center">
@@ -48,15 +50,103 @@ const fetchAllPosts = async () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button><img src="images/inbox.png" alt=""></button>
+                                    <button onclick="tittleAddingBtn('${escape(post.title)}',${post.view_count})"><img src="images/inbox.png" alt=""></button>
                                 </div>
                             </div>
                         </div>
                     </div>
         `;
         postsContainer.appendChild(postDiv);
+
+
     });
+
 }
 
 
 fetchAllPosts();
+
+
+// handle Search 
+
+const handleSearch = async() => {
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
+    const data = await res.json()
+    const allPosts = data.posts;
+    console.log(allPosts)
+    const searchBoxValue = document.getElementById('search-box').value;
+    fetchAllPosts(searchBoxValue)
+    // console.log(searchBoxValue)
+
+}
+
+// Button Function
+
+const tittleAddingBtn = (name, viewCount) => {
+    console.log(name, viewCount)
+    const markingDivContainer = document.getElementById('marking-div');
+    const markingDiv = document.createElement('div')
+
+    markingDiv.innerHTML = `
+    <div class="flex justify-between items-center p-4 bg-white rounded-2xl">
+                        <h2 class="font-mulish font-semibold text-base text-[#12132D]">${unescape(name)}</h2>
+                        <div class="flex items-center gap-1 text-base text-[#12132D]">
+                            <img src="images/eye.png" alt="">
+                            <p>${viewCount}</p>
+                        </div>
+                    </div>
+    `;
+    markingDivContainer.appendChild(markingDiv);
+
+    let count = parseInt(document.getElementById('count').innerText);
+    count++;
+    document.getElementById('count').innerText = count;
+    // console.log(typeof count)
+}
+
+
+// latest posts
+
+const fetchLatestPosts = async () => {
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
+    const data = await res.json()
+    console.log(data)
+
+    const latestCardContainer = document.getElementById('latest-card-container');
+    data.forEach(card => {
+        console.log(card)
+        const cardDiv = document.createElement('div')
+        cardDiv.innerHTML = `
+        <div class="card bg-base-100 border-2 border-solid border-[#12132d26] rounded-3xl">
+                    <figure class="px-10 pt-10">
+                        <img src="${card.cover_image}" alt="Shoes"
+                            class="rounded-xl" />
+                    </figure>
+                    <div class="space-y-3 card-body">
+                        <div class="flex items-center gap-2">
+                            <img src="images/date.png" alt="">
+                            <p class="font-mulish text-[#12132d99]">${card.author?.posted_date}</p>
+                        </div>
+                        <h4 class="font-mulish font-extrabold text-lg text-[#12132D]">${card.title}</h4>
+                        <p class="font-mulish text-[#12132d99]">${card.description}</p>
+                        <div class=" flex items-center gap-3">
+                            <div class="avatar">
+                                <div class="w-24 rounded-full">
+                                    <img src="${card.profile_image}" />
+                                </div>
+                            </div>
+                            <div class="font-mulish">
+                                <h5 class="text-base font-bold text-[#12132D]">${card.author.name}</h5>
+                                <p>${card.author?.designation}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        `;
+        latestCardContainer.appendChild(cardDiv)
+
+    })
+}
+
+fetchLatestPosts();
+
