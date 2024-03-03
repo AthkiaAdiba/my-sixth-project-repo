@@ -19,10 +19,10 @@
         <nav class="flex justify-between items-center mt-10">
             <h1 class="text-[#12132D] font-black text-4xl font-mulish">ReTro</h1>
             <div class="flex items-center gap-4">
-                <a class="tooltip tooltip-bottom" data-tip="Home" href=""><img src="images/home (2).png" alt=""></a>
-                <a class="tooltip tooltip-bottom" data-tip="Edit" href=""><img src="images/pen.png" alt=""></a>
-                <a class="tooltip tooltip-bottom" data-tip="Add" href=""><img src="images/person.png" alt=""></a>
-                <a class="tooltip tooltip-bottom" data-tip="Flag" href=""><img src="images/flag (2).png" alt=""></a>
+                <a class="tooltip" data-tip="Home" href=""><img src="images/home (2).png" alt=""></a>
+                <a class="tooltip" data-tip="Edit" href=""><img src="images/pen.png" alt=""></a>
+                <a class="tooltip" data-tip="Add" href=""><img src="images/person.png" alt=""></a>
+                <a class="tooltip" data-tip="Mark" href=""><img src="images/flag (2).png" alt=""></a>
                 <button class="btn bg-[#797DFC] rounded-[50px] text-white px-7 text-xl font-bold">Sign In</button>
             </div>
         </nav>
@@ -76,46 +76,50 @@
             <p class="font-inter text-lg text-[#12132d99] text-center">Yes, you can run unit tests and view the results
                 directly
                 within the app. The integrated testing features allow for a streamlined .</p>
-            <div class="mt-12 flex gap-6">
-                <!-- card div -->
-                <div class="flex gap-2 bg-[#797dfc1a] p-10 rounded-3xl">
-                    <!-- Avter div -->
-                    <div>
-                        <div class="avatar online">
-                            <div class="w-24 rounded-full">
-                                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Text div -->
-                    <div class="font-inter space-y-6">
-                        <div class="flex items-center gap-5 font-medium text-[#12132dcc]">
-                            <p># <span>Music</span></p>
-                            <p>Author : <span>Awlad Hossain</span></p>
-                        </div>
-                        <h3 class="font-mulish text-[#12132D] font-bold text-xl">10 Kids Unaware of Their Halloween
-                            Costume</h3>
-                        <p class="text-base text-[#12132D]">It’s one thing to subject yourself to ha Halloween costume
-                            mishap because, hey that’s your prerogative</p>
-                        <img class="w-full" src="images/Line 1 (3).png" alt="">
-                        <!-- icon div -->
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center gap-8">
-                                <div class="flex items-center gap-3 text-base text-[#12132D]">
-                                    <img src="images/comment.png" alt="">
-                                    <p>560</p>
-                                </div>
-                                <div class="flex items-center gap-3 text-base text-[#12132D]">
-                                    <img src="images/eye.png" alt="">
-                                    <p>1,568</p>
-                                </div>
-                                <div class="flex items-center gap-3 text-base text-[#12132D]">
-                                    <img src="images/time.png" alt="">
-                                    <p><span>5</span>min</p>
+            <div class="mt-12 flex flex-col lg:flex-row gap-6">
+                <!-- card container -->
+                <div id="card-container" class="space-y-6">
+                    <!-- card div -->
+                    <div class="flex gap-2 bg-[#797dfc1a] p-2 lg:p-10 rounded-3xl">
+                        <!-- Avter div -->
+                        <div>
+                            <div class=" w-24 avatar online">
+                                <div class="rounded-full">
+                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                                 </div>
                             </div>
-                            <div>
-                                <button><img src="images/inbox.png" alt=""></button>
+                        </div>
+                        <!-- Text div -->
+                        <div class="font-inter space-y-6">
+                            <div class="flex items-center gap-5 font-medium text-[#12132dcc]">
+                                <p># <span>Music</span></p>
+                                <p>Author : <span>Awlad Hossain</span></p>
+                            </div>
+                            <h3 class="font-mulish text-[#12132D] font-bold text-xl">10 Kids Unaware of Their Halloween
+                                Costume</h3>
+                            <p class="text-base text-[#12132D]">It’s one thing to subject yourself to ha Halloween
+                                costume
+                                mishap because, hey that’s your prerogative</p>
+                            <img class="w-full" src="images/Line 1 (3).png" alt="">
+                            <!-- icon div -->
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-8">
+                                    <div class="flex items-center gap-3 text-base text-[#12132D]">
+                                        <img src="images/comment.png" alt="">
+                                        <p>560</p>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-base text-[#12132D]">
+                                        <img src="images/eye.png" alt="">
+                                        <p>1,568</p>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-base text-[#12132D]">
+                                        <img src="images/time.png" alt="">
+                                        <p><span>5</span>min</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button><img src="images/inbox.png" alt=""></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -155,7 +159,8 @@
         <!-- latest post section -->
         <section class="mx-2 lg:mx-14 mt-24 mb-12">
             <h1 class="mb-6 font-mulish text-[#12132D] text-[40px] font-black text-center">Latest Posts</h1>
-            <p class="font-inter text-lg text-[#12132d99] text-center">Yes, you can run unit tests and view the results directly within the <br> app. The integrated testing features allow for a streamlined .</p>
+            <p class="font-inter text-lg text-[#12132d99] text-center">Yes, you can run unit tests and view the results
+                directly within the <br> app. The integrated testing features allow for a streamlined .</p>
             <!-- card container -->
             <div class="mt-12">
                 <!-- card -->
@@ -191,7 +196,8 @@
     </main>
     <footer class="space-y-4 py-28 p-24 bg-[#12132d0d] font-mulish text-center">
         <h1 class="text-[#12132D] font-black text-4xl">ReTro</h1>
-        <p class="text-[#12132db3]">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC</p>
+        <p class="text-[#12132db3]">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+            piece of classical Latin literature from 45 BC</p>
         <div class="flex items-center justify-center gap-8 text-2xl">
             <i class="fa-brands fa-twitter"></i>
             <i class="fa-brands fa-facebook"></i>
