@@ -16,32 +16,36 @@
 
 <body>
     <header class="mx-2 lg:mx-14">
-        <nav class="flex justify-between items-center mt-10">
+        <nav class="flex flex-col lg:flex-row justify-between items-center mt-10">
             <h1 class="text-[#12132D] font-black text-4xl font-mulish">ReTro</h1>
             <div class="flex items-center gap-4">
                 <a class="tooltip" data-tip="Home" href=""><img src="images/home (2).png" alt=""></a>
                 <a class="tooltip" data-tip="Edit" href=""><img src="images/pen.png" alt=""></a>
                 <a class="tooltip" data-tip="Add" href=""><img src="images/person.png" alt=""></a>
                 <a class="tooltip" data-tip="Flag" href=""><img src="images/flag (2).png" alt=""></a>
-                <button class="btn bg-[#797DFC] rounded-[50px] text-white px-7 text-xl font-bold">Sign In</button>
+                <button
+                    class="btn bg-[#797DFC] rounded-[50px] text-white px-3 lg:px-7 text-base lg:text-xl font-bold">Sign
+                    In</button>
             </div>
         </nav>
         <!-- banner section -->
-        <section class="bg-no-repeat bg-cover bg-[#12132D] rounded-[32px] mt-16 p-24" style="background-image: url(images/bgbanner.png);">
+        <section class="bg-no-repeat bg-cover bg-[#12132D] rounded-[32px] mt-16 p-8 lg:p-24"
+            style="background-image: url(images/bgbanner.png);">
             <div>
                 <!-- <div class="hero-overlay"></div> -->
                 <div>
                     <!-- banner inner items -->
-                    <div class="font-mulish flex items-center justify-between">
-                        <div class="max-w-md">
-                            <h1 class="font-black text-6xl mb-5 text-white">Welcome to the <span class="">ReTro</span>
-                                Forum</h1>
-                            <p class="mb-5 text-[#ffffffc9] font-medium text-xl">Share your favorite opinion and win and
+                    <div class="font-mulish flex gap-4 lg:gap-0 flex-col lg:flex-row items-center justify-between">
+                        <div class="max-w-sm md:max-w-md space-y-4">
+                            <h1 class="font-black text-2xl lg:text-5xl text-white">Welcome to the <span
+                                    class="">ReTro</span> Forum</h1>
+                            <p class="text-[#ffffffc9] font-medium text-xl">Share your favorite opinion and win and
                                 wp forum coffee mug!</p>
                             <label class="input input-bordered flex items-center gap-2 rounded-[50px]">
-                                <input id="search-box" type="text" class="grow" placeholder="Search here anything" />
+                                <input id="search-box" type="text" class="grow"
+                                    placeholder="Search here anything" />
                                 <button onclick="handleSearch()"
-                                    class="bg-[#797DFC] rounded-[50px] text-white px-7 py-2 text-xl font-bold">Search</button>
+                                    class="bg-[#797DFC] rounded-[50px] text-white lg:px-7 lg:py-2 text-xl font-bold">Search</button>
                             </label>
                         </div>
                         <div>
@@ -76,13 +80,13 @@
             <p class="font-inter text-lg text-[#12132d99] text-center">Yes, you can run unit tests and view the results
                 directly
                 within the app. The integrated testing features allow for a streamlined .</p>
-                <!-- Loader -->
-                <div id="loading-spinner" class="text-center mt-6 hidden">
-                    <span class="loading loading-bars loading-xs"></span>
-                    <span class="loading loading-bars loading-sm"></span>
-                    <span class="loading loading-bars loading-md"></span>
-                    <span class="loading loading-bars loading-lg"></span>
-                </div>
+            <!-- Loader -->
+            <div id="loading-spinner" class="text-center mt-6 hidden">
+                <span class="loading loading-bars loading-xs"></span>
+                <span class="loading loading-bars loading-sm"></span>
+                <span class="loading loading-bars loading-md"></span>
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
             <div class="mt-12 flex flex-col lg:flex-row gap-6">
                 <!-- card container -->
                 <div id="card-container" class="space-y-6">
@@ -92,19 +96,22 @@
                     </div> -->
                 </div>
                 <!-- marking div -->
-                <div id="marking-div" class="bg-[#12132d0d] p-6 rounded-3xl w-[420px] space-y-4">
-                    <div class=" flex items-center justify-between">
-                        <h3 class="font-mulish text-[#12132D] font-bold text-xl">Title</h3>
-                        <div class="flex items-center justify-between">
-                            <img src="images/right.png" alt="">
-                            <p>Mark as read (<span id="count">0</span>)</p>
+                <div>
+                    <div id="marking-div" class="bg-[#12132d0d] p-3 lg:p-6 rounded-3xl lg:w-[450px] space-y-4">
+                        <div class=" flex items-center justify-between">
+                            <h3 class="font-mulish text-[#12132D] font-bold text-xl">Title</h3>
+                            <div class="flex items-center justify-between">
+                                <img src="images/right.png" alt="">
+                                <p>Mark as read (<span id="count">0</span>)</p>
+                            </div>
                         </div>
+
                     </div>
-                    
                 </div>
         </section>
         <!-- Forum section -->
-        <section class=" flex items-center pl-20 mx-2 lg:mx-14 mt-24 mb-12 bg-[#12132D] rounded-[32px]">
+        <section
+            class=" flex flex-col lg:flex-row items-center p-3 lg:pl-20 mx-2 lg:mx-14 mt-24 mb-12 bg-[#12132D] rounded-[32px]">
             <div class="font-mulish space-y-4">
                 <h1 class="text-white text-[40px] font-black">Join Our Forum</h1>
                 <p class=" text-[#ffffffcc] text-lg font-medium">Share your favorite opinion and win and wp forum coffee
@@ -119,10 +126,9 @@
         <!-- latest post section -->
         <section class="mx-2 lg:mx-14 mt-24 mb-12">
             <h1 class="mb-6 font-mulish text-[#12132D] text-[40px] font-black text-center">Latest Posts</h1>
-            <p class="font-inter text-lg text-[#12132d99] text-center">Yes, you can run unit tests and view the results
-                directly within the <br> app. The integrated testing features allow for a streamlined .</p>
+            <p class="font-inter text-lg text-[#12132d99] text-center">Yes, you can run unit tests and view the results directly within the <br> app. The integrated testing features allow for a streamlined .</p>
             <!-- card container -->
-            <div id="latest-card-container" class="mt-12 grid grid-cols-3 gap-5">
+            <div id="latest-card-container" class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-5">
                 <!-- card -->
                 <!-- <div class="card bg-base-100 border-2 border-solid border-[#12132d26] rounded-3xl">
                     <figure class="px-10 pt-10">
@@ -154,7 +160,7 @@
             </div>
         </section>
     </main>
-    <footer class="space-y-4 py-28 p-24 bg-[#12132d0d] font-mulish text-center">
+    <footer class="space-y-4 py-10 lg:py-28 p-10 lg:p-24 bg-[#12132d0d] font-mulish text-center">
         <h1 class="text-[#12132D] font-black text-4xl">ReTro</h1>
         <p class="text-[#12132db3]">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
             piece of classical Latin literature from 45 BC</p>

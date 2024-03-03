@@ -15,8 +15,9 @@ const fetchAllPosts = async (searchText) => {
     allPosts.forEach(post => {
         // console.log(post);
         const postDiv = document.createElement('div');
+
         postDiv.innerHTML = `
-        <div class="flex gap-2 bg-[#797dfc1a] p-10 rounded-3xl">
+        <div class="lg:w-[900px] flex flex-col lg:flex-row gap-2 bg-[#797dfc1a] p-3 lg:p-10 rounded-3xl">
                         <!-- Avter div -->
                         <div>
                         <div class="relative mt-5">
@@ -26,7 +27,7 @@ const fetchAllPosts = async (searchText) => {
                         </div>
                         <!-- Text div -->
                         <div class="font-inter space-y-6">
-                            <div class="flex items-center gap-5 font-medium text-[#12132dcc]">
+                            <div class="flex items-center gap-2 lg:gap-5 font-medium text-[#12132dcc]">
                                 <p># <span>${post.category}</span></p>
                                 <p>Author : <span>${post.author.name}</span></p>
                             </div>
@@ -35,7 +36,7 @@ const fetchAllPosts = async (searchText) => {
                             <img class="w-full" src="images/Line 1 (3).png" alt="">
                             <!-- icon div -->
                             <div class="flex justify-between items-center">
-                                <div class="flex items-center gap-8">
+                                <div class="flex items-center gap-2 lg:gap-8">
                                     <div class="flex items-center gap-3 text-base text-[#12132D]">
                                         <img src="images/comment.png" alt="">
                                         <p>${post.comment_count}</p>
@@ -78,7 +79,7 @@ const categoryAllPosts = async (searchText) => {
         // console.log(post);
         const postDiv = document.createElement('div');
         postDiv.innerHTML = `
-        <div class="flex gap-2 bg-[#797dfc1a] p-10 rounded-3xl">
+        <div class="lg:w-[900px] flex flex-col lg:flex-row gap-2 bg-[#797dfc1a] p-3 lg:p-10 rounded-3xl">
                         <!-- Avter div -->
                         <div>
                         <div class="relative mt-5">
@@ -88,7 +89,7 @@ const categoryAllPosts = async (searchText) => {
                         </div>
                         <!-- Text div -->
                         <div class="font-inter space-y-6">
-                            <div class="flex items-center gap-5 font-medium text-[#12132dcc]">
+                            <div class="flex items-center gap-2 lg:gap-5 font-medium text-[#12132dcc]">
                                 <p># <span>${post.category}</span></p>
                                 <p>Author : <span>${post.author.name}</span></p>
                             </div>
@@ -97,7 +98,7 @@ const categoryAllPosts = async (searchText) => {
                             <img class="w-full" src="images/Line 1 (3).png" alt="">
                             <!-- icon div -->
                             <div class="flex justify-between items-center">
-                                <div class="flex items-center gap-8">
+                                <div class="flex items-center gap-2 lg:gap-8">
                                     <div class="flex items-center gap-3 text-base text-[#12132D]">
                                         <img src="images/comment.png" alt="">
                                         <p>${post.comment_count}</p>
@@ -126,8 +127,6 @@ const categoryAllPosts = async (searchText) => {
     // hide Loading Spinner
 
     loadingSpinner(false)
-
-
 }
 
 
@@ -146,7 +145,6 @@ const handleSearch = async () => {
 
 
 // Loading Spinner
-
 
 
 const loadingSpinner = (isLoading) => {
@@ -171,9 +169,9 @@ const tittleAddingBtn = (name, viewCount) => {
     const markingDiv = document.createElement('div')
 
     markingDiv.innerHTML = `
-    <div class="flex justify-between items-center p-4 bg-white rounded-2xl">
-                        <h2 class="font-mulish font-semibold text-base text-[#12132D]">${unescape(name)}</h2>
-                        <div class="flex items-center gap-1 text-base text-[#12132D]">
+    <div class="flex justify-between items-center p-2 lg:p-4 bg-white rounded-2xl">
+                        <h2 class="font-mulish font-semibold text-xs lg:text-base text-[#12132D]">${unescape(name)}</h2>
+                        <div class="flex items-center gap-1 text-xs lg:text-base text-[#12132D]">
                             <img src="images/eye.png" alt="">
                             <p>${viewCount}</p>
                         </div>
