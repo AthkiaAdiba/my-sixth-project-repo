@@ -141,6 +141,7 @@ const handleSearch = async () => {
     const searchBoxValue = document.getElementById('search-box').value;
     // console.log(searchBoxValue)
     categoryAllPosts(searchBoxValue)
+
 }
 
 
