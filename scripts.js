@@ -8,7 +8,7 @@ const fetchAllPosts = async (searchText) => {
 
 
     // console.log(allPosts);
-
+    
     const postsContainer = document.getElementById('card-container');
 
     postsContainer.innerHTML = ''
@@ -61,7 +61,7 @@ const fetchAllPosts = async (searchText) => {
 
 
     });
-
+    
 }
 
 
@@ -127,6 +127,7 @@ const categoryAllPosts = async (searchText) => {
     // hide Loading Spinner
 
     loadingSpinner(false)
+    document.getElementById('search-box').value = ''
 }
 
 
@@ -140,6 +141,9 @@ const handleSearch = async () => {
     loadingSpinner(true)
     const searchBoxValue = document.getElementById('search-box').value;
     // console.log(searchBoxValue)
+    const markingDivContainer = document.getElementById('marking-div');
+    document.getElementById('count').innerHTML = 0;
+    markingDivContainer.innerHTML =''
     categoryAllPosts(searchBoxValue)
 
 }
@@ -169,6 +173,7 @@ const tittleAddingBtn = (name, viewCount) => {
     const markingDivContainer = document.getElementById('marking-div');
     const markingDiv = document.createElement('div')
 
+    markingDivContainer.classList = `space-y-4`
     markingDiv.innerHTML = `
     <div class="flex justify-between items-center p-2 lg:p-4 bg-white rounded-2xl">
                         <h2 class="font-mulish font-semibold text-xs lg:text-base text-[#12132D]">${unescape(name)}</h2>

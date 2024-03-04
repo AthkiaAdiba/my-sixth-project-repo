@@ -16,7 +16,7 @@
 
 <body>
     <header class="mx-2 lg:mx-14">
-        <nav class="flex flex-col lg:flex-row justify-between items-center mt-10">
+        <nav class="flex flex-col gap-6 lg:gap-0 lg:flex-row justify-between items-center mt-10">
             <h1 class="text-[#12132D] font-black text-4xl font-mulish">ReTro</h1>
             <div class="flex items-center gap-4">
                 <a class="tooltip" data-tip="Home" href=""><img src="images/home (2).png" alt=""></a>
@@ -37,11 +37,13 @@
                     <!-- banner inner items -->
                     <div class="font-mulish flex gap-4 lg:gap-0 flex-col lg:flex-row items-center justify-between">
                         <div class="max-w-sm md:max-w-md space-y-4">
-                            <h1 class="font-black text-2xl lg:text-5xl text-white">Welcome to the <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-950">ReTro</span> Forum</h1>
-                            <p class="text-[#ffffffc9] font-medium text-xl"> We're delighted to have you as part of our growing family.</p>
-                            <label class="input input-bordered flex items-center gap-2 rounded-[50px]">
-                                <input id="search-box" type="text" class="grow"
-                                    placeholder="Search here anything" />
+                            <h1 class="font-black text-2xl lg:text-5xl text-white">Welcome to the <span
+                                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-950">ReTro</span>
+                                Forum</h1>
+                            <p class="text-[#ffffffc9] font-medium text-xl"> We're delighted to have you as part of our
+                                growing family.</p>
+                            <label class="input input-bordered flex items-center lg:gap-2 rounded-[50px]">
+                                <input id="search-box" type="text" class="grow" placeholder="Search here anything" />
                                 <button onclick="handleSearch()"
                                     class="bg-[#797DFC] rounded-[50px] text-white lg:px-7 lg:py-2 text-xl font-bold">Search</button>
                             </label>
@@ -75,7 +77,9 @@
         <!-- let's discussion section -->
         <section class="mx-2 lg:mx-14 mt-24 mb-12">
             <h1 class="mb-6 font-mulish text-[#12132D] text-[40px] font-black text-center">Let’s Discuss</h1>
-            <p class="font-inter text-lg text-[#12132d99] text-center">We are an excellent way to create social connections and a sense of community. <br> We can also help you to cultivate an interest group about a particular subject.</p>
+            <p class="font-inter text-lg text-[#12132d99] text-center">We are an excellent way to create social
+                connections and a sense of community. <br> We can also help you to cultivate an interest group about a
+                particular subject.</p>
             <!-- Loader -->
             <div id="loading-spinner" class="text-center mt-6 hidden">
                 <span class="loading loading-bars loading-xs"></span>
@@ -87,11 +91,11 @@
                 <!-- card container -->
                 <div id="card-container" class="space-y-6">
                     <!-- card div -->
-                    
+
                 </div>
                 <!-- marking div -->
                 <div>
-                    <div id="marking-div" class="bg-[#12132d0d] p-3 lg:p-6 rounded-3xl lg:w-[450px] space-y-4">
+                    <div class="bg-[#12132d0d] p-3 lg:p-6 rounded-3xl lg:w-[450px] space-y-4">
                         <div class=" flex items-center justify-between">
                             <h3 class="font-mulish text-[#12132D] font-bold text-xl">Title</h3>
                             <div class="flex items-center justify-between">
@@ -99,6 +103,7 @@
                                 <p>Mark as read (<span id="count">0</span>)</p>
                             </div>
                         </div>
+                        <div id="marking-div"></div>
 
                     </div>
                 </div>
@@ -108,7 +113,8 @@
             class=" flex flex-col lg:flex-row items-center justify-between p-5 lg:pl-20 mx-2 lg:mx-14 mt-24 mb-12 bg-[#12132D] rounded-[32px]">
             <div class="font-mulish space-y-4">
                 <h1 class="text-white text-[40px] font-black">Join Our Forum</h1>
-                <p class=" text-[#ffffffcc] text-lg font-medium">Look no further – join our vibrant and growing community at ReTro Forum!</p>
+                <p class=" text-[#ffffffcc] text-lg font-medium">Look no further – join our vibrant and growing
+                    community at ReTro Forum!</p>
                 <button class="btn bg-[#797DFC] rounded-[50px] text-white px-7 text-xl font-bold border-none">Registered
                     Now</button>
             </div>
@@ -119,17 +125,20 @@
         <!-- latest post section -->
         <section class="mx-2 lg:mx-14 mt-24 mb-12">
             <h1 class="mb-6 font-mulish text-[#12132D] text-[40px] font-black text-center">Latest Posts</h1>
-            <p class="font-inter text-lg text-[#12132d99] text-center">Join the excitement now by visiting ReTro Forum and immersing yourself in these dynamic conversations. <br> Don't miss out on the latest happenings and the opportunity to connect with fellow ReTro Forum enthusiasts!</p>
+            <p class="font-inter text-lg text-[#12132d99] text-center">Join the excitement now by visiting ReTro Forum
+                and immersing yourself in these dynamic conversations. <br> Don't miss out on the latest happenings and
+                the opportunity to connect with fellow ReTro Forum enthusiasts!</p>
             <!-- card container -->
             <div id="latest-card-container" class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-5">
                 <!-- card -->
-                
+
             </div>
         </section>
     </main>
     <footer class="space-y-4 py-10 lg:py-28 p-10 lg:p-24 bg-[#12132d0d] font-mulish text-center">
         <h1 class="text-[#12132D] font-black text-4xl">ReTro</h1>
-        <p class="text-[#12132db3]">Visit ReTro Forum and embark on an exciting journey of exploration, discovery, and connection. <br> Your adventure in the ReTro Forum realm starts now!</p>
+        <p class="text-[#12132db3]">Visit ReTro Forum and embark on an exciting journey of exploration, discovery, and
+            connection. <br> Your adventure in the ReTro Forum realm starts now!</p>
         <div class="flex items-center justify-center gap-8 text-2xl">
             <i class="fa-brands fa-twitter"></i>
             <i class="fa-brands fa-facebook"></i>
